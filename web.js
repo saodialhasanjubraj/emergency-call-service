@@ -70,10 +70,10 @@ for (const card of cards) {
     const itemCard = document.createElement("div")
     itemCard.innerHTML = `
    
-<div class="card h-70 w-75 rounded-[12px] flex flex-col gap-2 border-2 p-8">
-                    <div class="imgHeartIcon">
+<div class="card h-70 w-75 rounded-[12px] flex flex-col gap-2 border-1 p-8">
+                    <div class="imgHeartIcon flex items-center justify-between">
                         <img class="w-8 h-10" src=${card.imgPaht} alt="" srcset="">
-                        <div class="heartIcon" id="heartIcon">heartIcon</div>
+                       <i class="fa-solid fa-heart fa-beat fa-xl" style="color: #FF0000;"></i>
                     </div>
                     <h1>${card.headingText}</h1>
                     <p class="m-0">${card.catagori}</p>
@@ -86,8 +86,6 @@ for (const card of cards) {
                 </div>
 `
     document.getElementById('gridCards').append(itemCard)
-
-
 }
 
 
