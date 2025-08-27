@@ -1,75 +1,82 @@
 const cards = [
     {
+        id: 1,
         imgPaht: "assets/emergency.png",
         headingText: "National Emergency Number",
-        catagori: "National Emergency",
+        category: "National Emergency",
         callNumber: 999,
         sector: "All",
     },
     {
+        id: 2,
         imgPaht: "assets/police.png",
         headingText: "Police Helpline Number",
-        catagori: "Police",
+        category: "Police",
         callNumber: 999,
         sector: "Police",
     },
     {
+        id: 3,
         imgPaht: "assets/emergency.png",
         headingText: "Fire Service Number",
-        catagori: "Fire Service",
+        category: "Fire Service",
         callNumber: 999,
         sector: "Fire",
     },
     {
+        id: 4,
         imgPaht: "assets/emergency.png",
         headingText: "Ambulance Service",
-        catagori: "Ambulance",
-        callNumber: 1994 - 999999,
+        category: "Ambulance",
+        callNumber: 999,
         sector: "Health",
     },
     {
+        id: 5,
         imgPaht: "assets/emergency.png",
         headingText: "Women & Child Helpline",
-        catagori: "Women & Child Helpline",
+        category: "Women & Child Helpline",
         callNumber: 109,
         sector: "Help",
     },
     {
+        id: 6,
         imgPaht: "assets/emergency.png",
         headingText: "Anti-Corruption Helpline",
-        catagori: "Anti-Corruption",
+        category: "Anti-Corruption",
         callNumber: 106,
         sector: "Govt.",
     },
     {
+        id: 7,
         imgPaht: "assets/emergency.png",
         headingText: "Electricity Helpline",
-        catagori: "Electricity Outage",
+        category: "Electricity Outage",
         callNumber: 16216,
         sector: "Electricity",
     },
     {
+        id: 8,
         imgPaht: "assets/emergency.png",
         headingText: "Brac Helpline",
-        catagori: "Brac",
+        category: "Brac",
         callNumber: 16445,
         sector: "NGO",
     },
     {
+        id: 9,
         imgPaht: "assets/emergency.png",
-        headingText: "Bangladesh Railway Helpline ",
-        catagori: "Bangladesh Railway",
+        headingText: "Bangladesh Railway Helpline",
+        category: "Bangladesh Railway",
         callNumber: 163,
         sector: "Travel",
     },
 ]
 
-
 for (const card of cards) {
 
     const itemCard = document.createElement("div")
-    itemCard.innerHTML = `
-   
+    itemCard.innerHTML = `   
 <div class="card h-70 w-75 rounded-[12px] flex flex-col gap-2 border-1 p-8">
                     <div class="imgHeartIcon flex items-center justify-between">
                         <img class="w-8 h-10" src=${card.imgPaht} alt="" srcset="">
@@ -80,13 +87,24 @@ for (const card of cards) {
                     <span class="helpLineNumber">${card.callNumber}</span>
                     <button type="button" class="sectorButton text-left font-bold text-[18px]" id="scctorButton">${card.sector}</button>
                     <div class="copyCallButtons w-full flex items-center justify-between">
-                        <button class="copyButton w-25 h-8 rounded-md border-2 " id="copyButton">copy</button>
-                        <button class="callButton w-25 h-8 rounded-md border-2 bg-green-600 text-white" id="callButton">call</button>
+                        <button class="copyButton w-25 h-8 rounded-md border-2">copy</button>
+                        <button class="callButtons w-25 h-8 rounded-md border-2 bg-green-600 text-white">call</button>
                     </div>
                 </div>
 `
     document.getElementById('gridCards').append(itemCard)
 }
+
+const allBtns = document.getElementsByClassName('callButtons')
+
+for (const btn of allBtns) {
+    btn.addEventListener('click', () => {
+       btn.style.cursor= "pointer"
+               alert('button clicked')
+    })
+
+}
+
 
 
 
