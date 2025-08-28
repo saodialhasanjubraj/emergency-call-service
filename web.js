@@ -1,5 +1,6 @@
 
 
+
 const cards = [
     {
         id: 1,
@@ -97,27 +98,34 @@ for (const card of cards) {
 
 
 }
-// innerText Reusable Function
-// function gotInnerText(id) {
-//     const gotInnerid = document.getElementById(id)
-//     const gotInneridText = gotInnerid.innerText
-//     return gotInneridText
-// }
 
+// innerText Reusable Function
+function gotInnerText(id) {
+    const gotInnerid = Number(document.getElementById(id).innerText)
+    return gotInnerid
+}
+
+
+// console.log(gotInnerText("coins"), "not coins found", typeof gotInnerText("coins"));
 
 
 
 
 const allBtns = document.getElementsByClassName('callButtons')
-// const conins = gotInnerText("conis")
-const arry = []
+// const conins = gotInnerText("coins")
+const currentCoins = gotInnerText("coins")
+const storeCoins = document.getElementById('coins')
+
 for (const btn of allBtns) {
     btn.addEventListener('click', () => {
-        const numberChildren = btn.parentElement.children[2]
-        console.log(numberChildren, "parent element read");
-        alert('button clicked')
-
-        arry.push(btn)
+        const updateCoins = currentCoins - 20
+        storeCoins.innerText = updateCoins
+        // storeCoins = updateCoins
+        const serviceChildren = btn.parentElement.parentElement.children[1].innerText;
+        const numberChildren = btn.parentElement.parentElement.children[3].innerText;
+        console.log(numberChildren, "parent element read", serviceChildren);
+        const alertMessage = 'Service Name:' + serviceChildren + "//Call Number:" + numberChildren;
+        alert(alertMessage)
     })
 }
 
