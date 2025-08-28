@@ -1,3 +1,5 @@
+
+
 const cards = [
     {
         id: 1,
@@ -74,7 +76,6 @@ const cards = [
 ]
 
 for (const card of cards) {
-
     const itemCard = document.createElement("div")
     itemCard.innerHTML = `   
 <div class="card h-70 w-75 rounded-[12px] flex flex-col gap-2 border-1 p-8">
@@ -87,23 +88,39 @@ for (const card of cards) {
                     <span class="helpLineNumber">${card.callNumber}</span>
                     <button type="button" class="sectorButton text-left font-bold text-[18px]" id="scctorButton">${card.sector}</button>
                     <div class="copyCallButtons w-full flex items-center justify-between">
-                        <button class="copyButton w-25 h-8 rounded-md border-2">copy</button>
-                        <button class="callButtons w-25 h-8 rounded-md border-2 bg-green-600 text-white">call</button>
+                        <button class="copyButton w-25 h-8 rounded-md border-2 hover:cursor-pointer">copy</button>
+                        <button class="callButtons w-25 h-8 rounded-md border-2 bg-green-600 text-white hover:cursor-pointer">call</button>
                     </div>
                 </div>
 `
     document.getElementById('gridCards').append(itemCard)
+
+
 }
+// innerText Reusable Function
+// function gotInnerText(id) {
+//     const gotInnerid = document.getElementById(id)
+//     const gotInneridText = gotInnerid.innerText
+//     return gotInneridText
+// }
+
+
+
+
 
 const allBtns = document.getElementsByClassName('callButtons')
-
+// const conins = gotInnerText("conis")
+const arry = []
 for (const btn of allBtns) {
     btn.addEventListener('click', () => {
-       btn.style.cursor= "pointer"
-               alert('button clicked')
-    })
+        const numberChildren = btn.parentElement.children[2]
+        console.log(numberChildren, "parent element read");
+        alert('button clicked')
 
+        arry.push(btn)
+    })
 }
+
 
 
 
