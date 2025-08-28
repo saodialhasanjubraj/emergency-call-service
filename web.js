@@ -1,3 +1,4 @@
+const { createElement } = require("react")
 
 
 
@@ -95,8 +96,6 @@ for (const card of cards) {
                 </div>
 `
     document.getElementById('gridCards').append(itemCard)
-
-
 }
 
 // innerText Reusable Function
@@ -126,6 +125,11 @@ for (const btn of allBtns) {
         console.log(numberChildren, "parent element read", serviceChildren);
         const alertMessage = 'Service Name:' + serviceChildren + "//Call Number:" + numberChildren;
         alert(alertMessage)
+
+        // const historyArray = [serviceChildren, numberChildren]
+        // const historyElement = createElement('div')
+        // historyElement.push(historyArray)
+
     })
 }
 
