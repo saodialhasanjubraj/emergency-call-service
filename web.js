@@ -115,10 +115,13 @@ const allBtns = document.getElementsByClassName('callButtons')
 const currentCoins = gotInnerText("coins")
 const storeCoins = document.getElementById('coins')
 
+let count = 0;
+
 for (const btn of allBtns) {
     btn.addEventListener('click', () => {
+        count += 1;
         const updateCoins = currentCoins - 20
-        storeCoins.innerText = updateCoins
+      document.getElementById('coins').innerText = updateCoins
         // storeCoins = updateCoins
         const serviceChildren = btn.parentElement.parentElement.children[1].innerText;
         const numberChildren = btn.parentElement.parentElement.children[3].innerText;
