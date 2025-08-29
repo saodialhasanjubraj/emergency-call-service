@@ -1,7 +1,3 @@
-const { createElement } = require("react")
-
-
-
 const cards = [
     {
         id: 1,
@@ -86,7 +82,7 @@ for (const card of cards) {
                        <i class="fa-solid fa-heart fa-beat fa-xl" style="color: #FF0000;"></i>
                     </div>
                     <h1>${card.headingText}</h1>
-                    <p class="m-0">${card.catagori}</p>
+                    <p class="m-0">${card.category}</p>
                     <span class="helpLineNumber">${card.callNumber}</span>
                     <button type="button" class="sectorButton text-left font-bold text-[18px]" id="scctorButton">${card.sector}</button>
                     <div class="copyCallButtons w-full flex items-center justify-between">
@@ -98,17 +94,21 @@ for (const card of cards) {
     document.getElementById('gridCards').append(itemCard)
 }
 
+//reuseable component:
 // innerText Reusable Function
 function gotInnerText(id) {
     const gotInnerid = Number(document.getElementById(id).innerText)
     return gotInnerid
 }
 
+function gotIdOnly(id) {
+    const idAll = document.getElementById(id)
+    return idAll
+}
+
+const time = new Date().toLocaleString()
 
 // console.log(gotInnerText("coins"), "not coins found", typeof gotInnerText("coins"));
-
-
-
 
 const allBtns = document.getElementsByClassName('callButtons')
 // const conins = gotInnerText("coins")
@@ -126,12 +126,29 @@ for (const btn of allBtns) {
         const alertMessage = 'Service Name:' + serviceChildren + "//Call Number:" + numberChildren;
         alert(alertMessage)
 
-        // const historyArray = [serviceChildren, numberChildren]
-        // const historyElement = createElement('div')
-        // historyElement.push(historyArray)
+        const callHistoryData = document.getElementById('callHistoryData')
+        const callHistoryDataElementDiv = document.createElement('div')
 
+        callHistoryDataElementDiv.innerHTML =
+            `
+            <div class="callhistory px-2.5 mb-2 bg-green-200 rounded-b-sm">
+                <div class="textContent">
+                    <h1>${serviceChildren}</h1>
+                    <span>${numberChildren}</span>
+                </div>
+                <div class="time">${time}</div>
+            </div>
+`
+        callHistoryData.append(callHistoryDataElementDiv)
     })
 }
+
+
+
+
+
+
+
 
 
 
