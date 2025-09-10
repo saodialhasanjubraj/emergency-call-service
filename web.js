@@ -1,3 +1,4 @@
+//cards looping using for methood
 const cards = [
     {
         id: 1,
@@ -75,7 +76,8 @@ const cards = [
 
 for (const card of cards) {
     const itemCard = document.createElement("div")
-    itemCard.innerHTML = `   
+    //dynamic card make using innerHtml
+    itemCard.innerHTML = `    
 <div class="card h-70 w-75 rounded-[12px] flex flex-col gap-2 border-1 p-8">
                     <div class="imgHeartIcon flex items-center justify-between">
                         <img class="w-8 h-10" src=${card.imgPaht} alt="" srcset="">
@@ -91,7 +93,7 @@ for (const card of cards) {
                     </div>
                 </div>
 `
-    document.getElementById('gridCards').append(itemCard)
+    document.getElementById('gridCards').append(itemCard)  //dynamic card show in div using append 
 }
 
 //reuseable component:
@@ -108,21 +110,27 @@ function gotIdOnly(id) {
 
 const time = new Date().toLocaleString()
 
-// console.log(gotInnerText("coins"), "not coins found", typeof gotInnerText("coins"));
-
 const allBtns = document.getElementsByClassName('callButtons')
-// const conins = gotInnerText("coins")
-const currentCoins = gotInnerText("coins")
-const storeCoins = document.getElementById('coins')
 
-let count = 0;
+
+//Global scope
+
+
+
+
+const callCutCoins = 20;
+let avlableCoins = 0;
+let coins = Number(document.getElementById('coins').innerText)
 
 for (const btn of allBtns) {
     btn.addEventListener('click', () => {
-        count += 1;
-        const updateCoins = currentCoins - 20
-      document.getElementById('coins').innerText = updateCoins
-        // storeCoins = updateCoins
+        avlableCoins = coins - callCutCoins;
+        avlableCoins = avlableCoins
+        // console.log(avlableCoins);
+        let newCoins = document.getElementById('coins')
+        newCoins.innerText = avlableCoins;
+
+
         const serviceChildren = btn.parentElement.parentElement.children[1].innerText;
         const numberChildren = btn.parentElement.parentElement.children[3].innerText;
         console.log(numberChildren, "parent element read", serviceChildren);
@@ -131,7 +139,7 @@ for (const btn of allBtns) {
 
         const callHistoryData = document.getElementById('callHistoryData')
         const callHistoryDataElementDiv = document.createElement('div')
-
+        //clearHistory div show in dynamamicaly 
         callHistoryDataElementDiv.innerHTML =
             `
             <div class="callhistory px-2.5 mb-2 bg-green-200 rounded-b-sm">
@@ -145,6 +153,13 @@ for (const btn of allBtns) {
         callHistoryData.append(callHistoryDataElementDiv)
     })
 }
+
+const clearBtn = document.getElementById('clearHistoryButton')
+clearBtn.addEventListener('click', () => {
+    document.getElementById('callHistoryData').style.display = "none"
+
+
+})
 
 
 
