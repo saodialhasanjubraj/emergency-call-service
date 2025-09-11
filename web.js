@@ -120,15 +120,28 @@ const allBtns = document.getElementsByClassName('callButtons')
 
 const callCutCoins = 20;
 let avlableCoins = 0;
+let cutBalance = 0
 let coins = Number(document.getElementById('coins').innerText)
+let sum = 0;
 
+
+
+
+// let newCoins = document.getElementById('coins')
 for (const btn of allBtns) {
     btn.addEventListener('click', () => {
-        avlableCoins = coins - callCutCoins;
-        avlableCoins = avlableCoins
-        // console.log(avlableCoins);
-        let newCoins = document.getElementById('coins')
-        newCoins.innerText = avlableCoins;
+        sum = sum + 1; //* incrise sum value +1 for cut balance
+        console.log(sum);
+        avlableCoins = coins - (callCutCoins * sum)
+        console.log(avlableCoins);
+        if (avlableCoins < 0) {
+            alert("You dont have sufficient Balance")
+            return
+        } else {
+            document.getElementById('coins').innerText = avlableCoins
+        }
+
+
 
 
         const serviceChildren = btn.parentElement.parentElement.children[1].innerText;
